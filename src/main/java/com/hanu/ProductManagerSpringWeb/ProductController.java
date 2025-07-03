@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ProductController {
 
+    //controller
     @Autowired
     ProductService service;
     @RequestMapping("/")
