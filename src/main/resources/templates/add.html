@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product - Product Manager</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    input {
+        padding: 8px;
+        margin-top: 5px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #007BFF;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Add New Product</h2>
+
+  <form th:action="@{/add}" th:object="${product}" method="post">
+    <label for="name">Product Name:</label>
+    <input type="text" th:field="*{name}" id="name" required />
+
+    <label for="type">Product Type:</label>
+    <input type="text" th:field="*{type}" id="type" required />
+
+    <label for="place">Place:</label>
+    <input type="text" th:field="*{place}" id="place" required />
+
+    <label for="warranty">Warranty (in years):</label>
+    <input type="number" th:field="*{warranty}" id="warranty" min="0" required />
+
+    <button type="submit">Add Product</button>
+  </form>
+
+  <a th:href="@{/}">← Back to Home</a>
+</div>
+</body>
+</html>
